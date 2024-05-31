@@ -1,5 +1,6 @@
 import { BarChart, Bar, Cell, Rectangle, XAxis, YAxis, Tooltip } from 'recharts';
 import './App.css';
+import { miles } from "./miles"
 
 function linearIncrease() {
  const weeks = Array.from({length: 52}, (value, key) => key + 1)
@@ -22,7 +23,9 @@ function App() {
  const currentDate = new Date(); // Current date
  const curWeek = calculateWeek(startDate, currentDate);
  let data = linearIncrease();
- data[0].ran = 0.37 + 0.37
+ for (let i = 0; i<miles.length; i++) {
+  data[i].ran = miles[i];
+ }
  return (
   <div className="App">
     <BarChart
